@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Data Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Employee Data Management</h1>
+    <div class="container">
+        <button class="button" onclick="openModal('submitModal')">Submit</button>
+        <button class="button" onclick="openModal('fetchModal')">Fetch</button>
+    </div>
+
+    <!-- Submit Modal -->
+    <div id="submitModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('submitModal')">&times;</span>
+            <h2>Submit Employee Data</h2>
+            <form id="submitForm">
+                <input class="form-input" type="text" id="name" name="name" placeholder="Name" required><br>
+                <input class="form-input" type="email" id="email" name="email" placeholder="Email" required><br>
+                <input class="form-input" type="date" id="dob" name="dob" required><br>
+                <input class="form-input" type="text" id="empid" name="empid" placeholder="Employee ID" required><br>
+                <button class="submit-button" type="button" onclick="submitForm()">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Fetch Modal -->
+    <div id="fetchModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('fetchModal')">&times;</span>
+            <h2>Fetch Employee Data</h2>
+            <form id="fetchForm">
+                <input class="form-input" type="text" id="fetchEmpid" name="fetchEmpid" placeholder="Employee ID"
+                    required><br>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="nameCheckbox" name="fetchData[]" value="name"> Name
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="emailCheckbox" name="fetchData[]" value="email"> Email
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="dobCheckbox" name="fetchData[]" value="dob"> Date of Birth
+                    </label>
+                </div>
+                <br>
+                <button class="submit-button" type="button" onclick="fetchData()">Fetch</button>
+            </form>
+            <div class="fetch-result" id="fetchResult"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
